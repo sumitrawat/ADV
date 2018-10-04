@@ -6,10 +6,40 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.6.1",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "7",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "ejs": "^2.6.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "pm2": "^3.2.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "webpack": "^4.20.2"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      [
+        "stage-2"
+      ]
+    ]
+  },
+  "scripts": {
+    "dev": "pm2 start lib/server.js --watch --interpreter babel-node",
+    "webpack": "webpack -wd"
   }
 }
